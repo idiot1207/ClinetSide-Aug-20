@@ -1,0 +1,109 @@
+<div class="container mat-elevation-z8">
+  <div class="tablewidth">
+  <mat-table #table [dataSource]="dataSource" matSort class="mat-cell">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+    <!--  Sr. No Column -->
+    <ng-container matColumnDef="sr_no">
+      <mat-header-cell *matHeaderCellDef mat-header> Sr. No </mat-header-cell>
+      <mat-cell *matCellDef="let element; let i=index;"> {{i+1}} </mat-cell>
+    </ng-container>  
+    
+    <!--  Team Name Column -->
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Team Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+    </ng-container>
+
+    <!-- Project Name  Column -->
+    <ng-container matColumnDef="project_name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Project Name  </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.project_name}} </mat-cell>
+    </ng-container> 
+    
+    <!-- Release Column -->
+    <ng-container matColumnDef="release">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Release  </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.release}} </mat-cell>
+    </ng-container>
+
+     <!-- Project Status Column -->
+     <ng-container matColumnDef="project_status">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Project Status  </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.project_status}} </mat-cell>
+    </ng-container>
+
+     <!-- Target FP's Column -->
+     <ng-container matColumnDef="target_fps">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Target FP's  </mat-header-cell>
+      <mat-cell *matCellDef="let element"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{element.target_fps}} </mat-cell>
+    </ng-container>
+
+     <!-- FP Closeed Column -->
+     <ng-container matColumnDef="fp_closed">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> FP Closed&nbsp;  </mat-header-cell>
+      <mat-cell *matCellDef="let element"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{element.fp_closed}} </mat-cell>
+    </ng-container>
+
+    <!-- Target SP's Column -->
+    <ng-container matColumnDef="target_sps">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Target SP's </mat-header-cell>
+      <mat-cell *matCellDef="let element">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{element.target_sps}} </mat-cell>
+    </ng-container>
+
+    <!-- SP Closed Column -->
+    <ng-container matColumnDef="sp_closed">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> SP Closed&nbsp;  </mat-header-cell>
+      <mat-cell *matCellDef="let element">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{element.sp_closed}} </mat-cell>
+    </ng-container>
+
+     <!--  Bugs Raised Column -->
+     <ng-container matColumnDef="bugs_raised">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Bugs Raised </mat-header-cell>
+      <mat-cell *matCellDef="let element"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{element.bugs_raised}} </mat-cell>
+    </ng-container>
+
+     <!-- Bugs Closed  Column -->
+     <ng-container matColumnDef="bugs_closed">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Bugs Closed </mat-header-cell>
+      <mat-cell *matCellDef="let element">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{element.bugs_closed}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    <!-- <tr mat-footer-row *matFooterRowDef="displayedColumns; sticky: true"></tr> -->
+
+  </mat-table>
+</div>
+
+
+
+  
+
+  <mat-grid-list cols="2" rowHeight="69px">
+    <mat-grid-tile>
+        <button mat-flat-button  [disableRipple]="true" (click)="importData()" color="primary">Import Data</button>
+        &nbsp;&nbsp;&nbsp;
+        <button mat-flat-button color="primary" >Export Data </button>
+        <!-- &nbsp;&nbsp;&nbsp;
+        <button mat-flat-button color="primary">Cancel</button> -->
+
+        <!-- spacer is for filling space in rights side of button so that they coule be adjusted to left -->
+        <span class="spacer"></span>
+    </mat-grid-tile>
+    <mat-grid-tile >
+      <!-- paginator -->
+      <span class="spacer"></span>
+
+      <mat-paginator #paginator
+                    [pageIndex]="0"
+                    [pageSize]="10"
+                    [pageSizeOptions]="[5, 10, 25, 100]"
+                    showFirstLastButtons>
+      </mat-paginator>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+</div>

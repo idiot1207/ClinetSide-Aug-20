@@ -1,0 +1,142 @@
+{
+    "team_names": [
+
+      {
+        "name": "Summer",
+        "project_name": "Data Ware House",
+        "release": "4.6.4.0",
+        "project_status": "closed",
+        "target_fps": 21,
+        "fp_closed": 21,
+        "target_sps": 411,
+        "sp_closed": 411,
+        "bugs_raised": 15,
+        "bugs_closed": 15,
+        "id":1
+       },
+       {
+        "name": "Team1",
+        "project_name": "Data Ware House",
+        "release": "4.6.4.0",
+        "project_status": "closed",
+        "target_fps": 24,
+        "fp_closed": 22,
+        "target_sps": 222,
+        "sp_closed": 431,
+        "bugs_raised": 15,
+        "bugs_closed": 15,
+        "id":2
+       },
+        {
+            "id": "e3d5081f-f3d9-402e-8a0b-514f8990e884",
+            "name": "Orange",
+            "url": "http://desktop-498rai4:8080/tfs/DefaultCollection/_apis/projects/3acc31e6-de6b-42a6-a970-405f050396b1/teams/e3d5081f-f3d9-402e-8a0b-514f8990e884",
+            "description": "Orange Team",
+            "identityUrl": "http://desktop-498rai4:8080/tfs/DefaultCollection/_apis/Identities/e3d5081f-f3d9-402e-8a0b-514f8990e884"
+        },
+        {
+            "id": "a9af6955-0486-46bb-a544-be8d25cb9a79",
+            "name": "Blue",
+            "url": "http://desktop-498rai4:8080/tfs/DefaultCollection/_apis/projects/3acc31e6-de6b-42a6-a970-405f050396b1/teams/a9af6955-0486-46bb-a544-be8d25cb9a79",
+            "description": "Blue Team",
+            "identityUrl": "http://desktop-498rai4:8080/tfs/DefaultCollection/_apis/Identities/a9af6955-0486-46bb-a544-be8d25cb9a79"
+        },
+        {
+            "id": "24d8bdf7-0ded-49a4-a1c8-be6b1b0fa3a6",
+            "name": "ProjectTwo Team",
+            "url": "http://desktop-498rai4:8080/tfs/DefaultCollection/_apis/projects/3acc31e6-de6b-42a6-a970-405f050396b1/teams/24d8bdf7-0ded-49a4-a1c8-be6b1b0fa3a6",
+            "description": "The default project team.",
+            "identityUrl": "http://desktop-498rai4:8080/tfs/DefaultCollection/_apis/Identities/24d8bdf7-0ded-49a4-a1c8-be6b1b0fa3a6"
+        },
+        {
+            "id": "90f421a1-014c-4518-a024-29058ec7d5e4",
+            "name": "Green",
+            "url": "http://desktop-498rai4:8080/tfs/DefaultCollection/_apis/projects/3acc31e6-de6b-42a6-a970-405f050396b1/teams/90f421a1-014c-4518-a024-29058ec7d5e4",
+            "description": "Green Team",
+            "identityUrl": "http://desktop-498rai4:8080/tfs/DefaultCollection/_apis/Identities/90f421a1-014c-4518-a024-29058ec7d5e4"
+        }
+    ],
+
+    "project_names": [
+
+        {
+          "name": "winter",
+          "project_name": "Data Ware House",
+          "release": "4.6.4.0",
+          "project_status": "closed",
+          "target_fps": 21,
+          "fp_closed": 21,
+          "target_sps": 411,
+          "sp_closed": 411,
+          "bugs_raised": 15,
+          "bugs_closed": 15,
+          "id":1
+         },
+         {
+          "name": "team2",
+          "project_name": "Data Ware House",
+          "release": "4.6.4.0",
+          "project_status": "closed",
+          "target_fps": 24,
+          "fp_closed": 22,
+          "target_sps": 222,
+          "sp_closed": 431,
+          "bugs_raised": 15,
+          "bugs_closed": 15,
+          "id":2
+         },
+          {
+              "id": "e3d5081f-f3d9-402e-8a0b-514f8990e884",
+              "name": "yellow",
+              "url": "http://desktop-498rai4:8080/tfs/DefaultCollection/_apis/projects/3acc31e6-de6b-42a6-a970-405f050396b1/teams/e3d5081f-f3d9-402e-8a0b-514f8990e884",
+              "description": "Orange Team",
+              "identityUrl": "http://desktop-498rai4:8080/tfs/DefaultCollection/_apis/Identities/e3d5081f-f3d9-402e-8a0b-514f8990e884"
+          },
+          {
+              "id": "a9af6955-0486-46bb-a544-be8d25cb9a79",
+              "name": "pink",
+              "url": "http://desktop-498rai4:8080/tfs/DefaultCollection/_apis/projects/3acc31e6-de6b-42a6-a970-405f050396b1/teams/a9af6955-0486-46bb-a544-be8d25cb9a79",
+              "description": "Blue Team",
+              "identityUrl": "http://desktop-498rai4:8080/tfs/DefaultCollection/_apis/Identities/a9af6955-0486-46bb-a544-be8d25cb9a79"
+          },
+          {
+              "id": "24d8bdf7-0ded-49a4-a1c8-be6b1b0fa3a6",
+              "name": "ProjectTwo Team",
+              "url": "http://desktop-498rai4:8080/tfs/DefaultCollection/_apis/projects/3acc31e6-de6b-42a6-a970-405f050396b1/teams/24d8bdf7-0ded-49a4-a1c8-be6b1b0fa3a6",
+              "description": "The default project team.",
+              "identityUrl": "http://desktop-498rai4:8080/tfs/DefaultCollection/_apis/Identities/24d8bdf7-0ded-49a4-a1c8-be6b1b0fa3a6"
+          },
+          {
+              "id": "90f421a1-014c-4518-a024-29058ec7d5e4",
+              "name": "lightblue",
+              "url": "http://desktop-498rai4:8080/tfs/DefaultCollection/_apis/projects/3acc31e6-de6b-42a6-a970-405f050396b1/teams/90f421a1-014c-4518-a024-29058ec7d5e4",
+              "description": "Green Team",
+              "identityUrl": "http://desktop-498rai4:8080/tfs/DefaultCollection/_apis/Identities/90f421a1-014c-4518-a024-29058ec7d5e4"
+          }
+      ],
+      "Orange" :[
+          {
+            "name": "project1",
+            "id": "22"
+          },
+          {
+            "name": "project2",
+            "id": "22"
+          },
+          {
+            "name": "project3",
+            "id": "22"
+          }
+      ],
+      "Blue":[     
+        {
+        "name": "Blue",
+        "id": "22"
+         }],
+      "ProjectTwo Team":[     
+    {
+        "name": "ProjectTwo Team",
+        "id": "22"
+      }]
+
+  }

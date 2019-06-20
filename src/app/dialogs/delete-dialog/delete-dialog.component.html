@@ -1,0 +1,9 @@
+<p>Are you sure want to detete?</p><br>
+<p>Team Name: {{data.team_name}}</p><br>
+<p>Feature Point: {{data.feature_point}}</p>
+<br>
+<div mat-dialog-actions>
+    <button mat-raised-button [type]="submit"  [mat-dialog-close]="1" (click)="deleteData()">Yes</button>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button mat-raised-button [type]="submit" [mat-dialog-close]="1" (click)="noAction()" >No</button>
+</div>

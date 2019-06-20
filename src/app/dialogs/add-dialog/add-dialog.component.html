@@ -1,0 +1,39 @@
+<div class="container">
+    <h3 mat-dialog-title>Add New Team</h3>
+
+  <!-- <form class="mat-dialog-content" (ngSubmit)="submit" #formControl="ngForm"> -->
+    <div class="form">
+      <mat-form-field color="accent">
+        <input matInput #input class="form-control" placeholder="Team Name" name="Team Name" [(ngModel)]= "data.team_name" required >
+        <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+    </div>
+
+    <!--Feature Point -->
+    <div class="form">
+      <mat-form-field color="accent">
+        <input matInput #input type="number" class="form-control" placeholder="Required Feature Point"  name=" Required Feature Point" [(ngModel)]= "data.feature_point" required >
+        <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+    </div>
+<!-- Story Point -->
+    <div class="form">
+      <mat-form-field color="accent">
+        <input matInput #input class="form-control" placeholder="Story Point per Feature Point"  name="Story Point" [(ngModel)]= "data.story_point" required >
+        <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+    </div>
+<!-- Velocity -->
+<div class="form">
+  <mat-form-field color="accent">
+    <input matInput #input class="form-control" placeholder="Velocity"  name=" Velocity" [(ngModel)]= "data.velocity" required >
+    <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
+  </mat-form-field>
+</div>
+
+  <div mat-dialog-actions>
+      <button mat-raised-button [type]="submit" [disabled]="!data.team_name ||!data.feature_point ||!data.velocity ||!data.story_point"  [mat-dialog-close]="1"(click)="save()">Save</button>
+      <button mat-raised-button (click)="cancel()" tabindex="-1">Cancel</button>
+  </div>
+<!-- </form> -->
+</div>

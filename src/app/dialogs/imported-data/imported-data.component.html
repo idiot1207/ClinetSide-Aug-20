@@ -1,0 +1,68 @@
+<mat-toolbar color="#e6e6ff">
+  <mat-toolbar-row>
+    <span style=color:#000080><b>Import Data From TFS</b></span>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<!-- toolbar ended -->
+<br><br>
+<div id="container">
+  <form>
+     
+      <div class="row">
+        <div class="col-25">
+            <mat-label><br>Team Name</mat-label>
+        </div>
+
+        <div class="col-75" >
+          <!-- <p > -->
+          <mat-form-field>
+            <mat-label>Select an option</mat-label>
+            <mat-select  [(value)]="selected_teamname" >
+              <span *ngFor="let teamName of team_names">
+               <mat-option *ngFor="let team of teamName.value" [value]="team.name"  (click)='getProjectDetails()'>{{team.name }}</mat-option>
+              </span>
+              </mat-select>
+          </mat-form-field>
+        <!-- </p> -->
+        </div>
+      </div>  
+
+        <div class="row">
+            <div class="col-25">
+              <mat-label><p>Project Name</p></mat-label>
+            </div>
+
+            <div class="col-75">
+                <mat-form-field>
+                 <mat-label>Select an option</mat-label>
+                 <mat-select  [(value)]="selected_project">
+                    <mat-option *ngFor="let projectname of project_names" [value]="projectname.name">{{projectname.name}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+               <mat-label><p>Release Version</p></mat-label>
+            </div>
+
+            <div class="col-75">
+                <mat-form-field>
+                  <mat-label>Select an option</mat-label>
+                  <mat-select>
+                    <mat-option style="color: #000080;">None</mat-option>
+                    <mat-option value="option1" *ngFor="let pro of users">{{pro.release}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+      
+      <br><br><br>
+
+        <div class="lower" align="center">
+            <button class="button" [mat-dialog-close]="1" (click)="importNewTeam()">Import</button>&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="button" color="primary" tabindex="-1" (click)="cancel()">Cancel</button>
+        </div>
+      </form>
+</div> 

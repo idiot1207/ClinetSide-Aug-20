@@ -1,0 +1,118 @@
+p a {
+    font-size: 11px;
+    color: #aaa;
+    float: right;
+    margin-top: -13px;
+    margin-right: 20px;
+}
+
+p a:hover {
+    color: #555;
+}
+input {
+    font-family: "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 12px;
+    outline: none;
+}
+input[type=text],
+input[type=password] {
+    color: #777;
+    padding-left: 10px;
+    margin-top: 12px;
+    margin-left: 18px;
+    width: 290px;
+    height: 35px;
+}
+
+
+#lower {
+    background: #ecf2f5;
+    width: 100%;
+    height: 69px;
+    margin-top: 20px;
+}
+input[type=checkbox] {
+    margin-left: 20px;
+    margin-top: 30px;
+}
+.check {
+    margin-left: 3px;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: black;
+}
+* {
+    box-sizing: border-box;
+}
+.container {
+    padding: 16px;
+    background-color: white;
+}
+
+
+select {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+
+tr {
+    background: #f1f1f1;
+}
+
+.button {
+    background-color: #000080;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+
+.lower1,
+.lower1 a {
+    margin-right: 20px;
+}
+
+.row {
+    width: 100%;
+}
+
+.col-25 {
+    float: left;
+    width: 50%;
+    margin-top: 10px;
+}
+
+.col-75 {
+    float: right;
+    width: 50%;
+    margin-top: 10px;
+}
+
+.row::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+mat-option {
+    color: #000080;
+}
+mat-select {
+    color: #000080;
+}
+
+mat-label {
+    font-family: Verdana;
+    color: #000080;
+}
