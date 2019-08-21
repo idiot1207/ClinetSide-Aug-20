@@ -1,4 +1,4 @@
-p a {
+/* p a {
     font-size: 11px;
     color: #aaa;
     float: right;
@@ -8,13 +8,13 @@ p a {
 
 p a:hover {
     color: #555;
-}
-input {
+} */
+/* input {
     font-family: "Helvetica Neue", Helvetica, sans-serif;
     font-size: 12px;
     outline: none;
-}
-input[type=text],
+} */
+/* input[type=text],
 input[type=password] {
     color: #777;
     padding-left: 10px;
@@ -22,7 +22,7 @@ input[type=password] {
     margin-left: 18px;
     width: 290px;
     height: 35px;
-}
+} */
 
 
 #lower {
@@ -31,17 +31,17 @@ input[type=password] {
     height: 69px;
     margin-top: 20px;
 }
-input[type=checkbox] {
+/* input[type=checkbox] {
     margin-left: 20px;
     margin-top: 30px;
-}
+} */
 .check {
     margin-left: 3px;
 }
-body {
+/* body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: black;
-}
+} */
 * {
     box-sizing: border-box;
 }
@@ -64,17 +64,16 @@ tr {
     background: #f1f1f1;
 }
 
-.button {
-    background-color: #000080;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
+button{
+    height: 45px;
+    width: 120px;
+    font-size:18px;
+    color:white;
+}
+
+.primarycolor{
+    background-color: #212d82;
+
 }
 
 
@@ -105,14 +104,19 @@ tr {
     clear: both;
 }
 
-mat-option {
-    color: #000080;
+mat-option ,mat-select{
+    color: #3b4694;
 }
-mat-select {
+/* mat-select {
     color: #000080;
-}
+} */
 
 mat-label {
     font-family: Verdana;
     color: #000080;
+}
+
+.mat-flat-button.mat-primary{
+    background : #3b4694;
+
 }

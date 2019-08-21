@@ -1,109 +1,152 @@
-<div class="container mat-elevation-z8">
+<div class="tablebackground ">
   <div class="tablewidth">
-  <mat-table #table [dataSource]="dataSource" matSort class="mat-cell">
+    <table mat-table [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8">
+      <ng-container matColumnDef="sr_no">
+        <th mat-header-cell *matHeaderCellDef>S/N</th>
+        <td mat-cell *matCellDef="let element ;let i=dataIndex"> {{i+1}} </td>
+      </ng-container>
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Name</th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+      <ng-container matColumnDef="project_name">
+        <th mat-header-cell *matHeaderCellDef>Project Name</th>
+        <td mat-cell *matCellDef="let element"> {{element.project_name}} </td>
+      </ng-container>
+      <ng-container matColumnDef="release">
+        <th mat-header-cell *matHeaderCellDef>Release</th>
+        <td mat-cell *matCellDef="let element"> {{element.release}} </td>
+      </ng-container>
+      <ng-container matColumnDef="project_status">
+        <th mat-header-cell *matHeaderCellDef>Project Status</th>
+        <td mat-cell *matCellDef="let element"> {{element.project_status}} </td>
+      </ng-container>
+      <ng-container matColumnDef="target_fps">
+        <th mat-header-cell *matHeaderCellDef>Target FP's</th>
+        <td mat-cell *matCellDef="let element"> {{element.target_fps}} </td>
+      </ng-container>
+      <ng-container matColumnDef="fp_closed">
+        <th mat-header-cell *matHeaderCellDef>FP Closed</th>
+        <td mat-cell *matCellDef="let element"> {{element.fp_closed}} </td>
+      </ng-container>
+      <ng-container matColumnDef="target_sps">
+        <th mat-header-cell *matHeaderCellDef>Target SP's</th>
+        <td mat-cell *matCellDef="let element"> {{element.target_sps}} </td>
+      </ng-container>
+      <ng-container matColumnDef="sp_closed">
+        <th mat-header-cell *matHeaderCellDef>SP Closed</th>
+        <td mat-cell *matCellDef="let element"> {{element.sp_closed}} </td>
+      </ng-container>
+      <ng-container matColumnDef="bugs_raised">
+        <th mat-header-cell *matHeaderCellDef>Bugs Raised</th>
+        <td mat-cell *matCellDef="let element"> {{element.bugs_raised}} </td>
+      </ng-container>
+      <ng-container matColumnDef="bugs_closed">
+        <th mat-header-cell *matHeaderCellDef>Bugs Closed</th>
+        <td mat-cell *matCellDef="let element">
+          {{element.bugs_closed}}
+          <!-- <span clic><mat-icon>delete</mat-icon></span> -->
 
-  <!--- Note that these columns can be defined in any order.
-        The actual rendered columns are set as a property on the row definition" -->
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef>Action</th>
+        <td mat-cell *matCellDef="let element;let i=dataIndex">
+          <button mat-button (click)="delete(i)">
+            <mat-icon color="accent">delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
 
-    <!--  Sr. No Column -->
-    <ng-container matColumnDef="sr_no">
-      <mat-header-cell *matHeaderCellDef mat-header> Sr. No </mat-header-cell>
-      <mat-cell *matCellDef="let element; let i=index;"> {{i+1}} </mat-cell>
-    </ng-container>  
-    
-    <!--  Team Name Column -->
-    <ng-container matColumnDef="name">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Team Name </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
-    </ng-container>
+      <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+      <ng-container matColumnDef="expandedDetail">
+        <td mat-cell *matCellDef="let element" [attr.colspan]="displayedColumns.length">
+          <div class="example-element-detail" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+            <table align="center" style="width: 80%">
+              <tr>
+                <th>SR No</th>
+                <th>Iteration Name</th>
+                <th>startDate</th>
+                <th>finishDate</th>
+                <th>Target FP</th>
+                <th>Closed FP</th>
+                <th>Target US</th>
+                <th>Closed US</th>
+                <th>Bug Raised</th>
+                <th>Bug Closed</th>
+              </tr>
+              <tr *ngFor=" let i=index;let data of teamdetailArray; " style="text-align: center">
+                <td>{{i+1}}</td>
+                <td>{{data.itertaionName}}</td>
+                <td>{{data.startDate}}</td>
+                <td>{{data.finishDate}}</td>
+                <td>{{data.iterationtargetFeaturePoint}}</td>
+                <td>{{data.iterationclosedFeaturePoint}}</td>
+                <td>{{data.iterationuserStoriesData}}</td>
+                <td>{{data.iterationclosedStoryPoint}}</td>
+                <td>{{data.iterationbugRaised}}</td>
+                <td>{{data.iterationbugClosed}}</td>
+              </tr>
 
-    <!-- Project Name  Column -->
-    <ng-container matColumnDef="project_name">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Project Name  </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.project_name}} </mat-cell>
-    </ng-container> 
-    
-    <!-- Release Column -->
-    <ng-container matColumnDef="release">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Release  </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.release}} </mat-cell>
-    </ng-container>
+              <tfoot>
+                <tr>
+                  <!-- <td colspan="4">Total</td>
+                <td>{{item.target_fps}}</td>
+                <td>{{item.fp_closed}}</td>
+                <td>{{item.target_sps}}</td>
+                <td>{{item.sp_closed}}</td>
+                <td>{{item.bugs_raised}}</td>
+                <td>{{item.bugs_closed}}</td> -->
+                </tr>
+              </tfoot>
 
-     <!-- Project Status Column -->
-     <ng-container matColumnDef="project_status">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Project Status  </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.project_status}} </mat-cell>
-    </ng-container>
+            </table>
 
-     <!-- Target FP's Column -->
-     <ng-container matColumnDef="target_fps">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Target FP's  </mat-header-cell>
-      <mat-cell *matCellDef="let element"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{element.target_fps}} </mat-cell>
-    </ng-container>
 
-     <!-- FP Closeed Column -->
-     <ng-container matColumnDef="fp_closed">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> FP Closed&nbsp;  </mat-header-cell>
-      <mat-cell *matCellDef="let element"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{element.fp_closed}} </mat-cell>
-    </ng-container>
 
-    <!-- Target SP's Column -->
-    <ng-container matColumnDef="target_sps">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Target SP's </mat-header-cell>
-      <mat-cell *matCellDef="let element">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{element.target_sps}} </mat-cell>
-    </ng-container>
 
-    <!-- SP Closed Column -->
-    <ng-container matColumnDef="sp_closed">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> SP Closed&nbsp;  </mat-header-cell>
-      <mat-cell *matCellDef="let element">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{element.sp_closed}} </mat-cell>
-    </ng-container>
 
-     <!--  Bugs Raised Column -->
-     <ng-container matColumnDef="bugs_raised">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Bugs Raised </mat-header-cell>
-      <mat-cell *matCellDef="let element"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{element.bugs_raised}} </mat-cell>
-    </ng-container>
 
-     <!-- Bugs Closed  Column -->
-     <ng-container matColumnDef="bugs_closed">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Bugs Closed </mat-header-cell>
-      <mat-cell *matCellDef="let element">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{element.bugs_closed}} </mat-cell>
-    </ng-container>
 
-    <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-    <!-- <tr mat-footer-row *matFooterRowDef="displayedColumns; sticky: true"></tr> -->
 
-  </mat-table>
+          </div>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let element; columns: displayedColumns;" class="example-element-row"
+        [class.example-expanded-row]="expandedElement === element"
+        (click)="expandedElement = expandedElement === element ? null : element"
+        (click)="projectList(element.name,element.project_name)">
+      </tr>
+      <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+    </table>
+  </div>
 </div>
 
 
 
-  
 
-  <mat-grid-list cols="2" rowHeight="69px">
-    <mat-grid-tile>
-        <button mat-flat-button  [disableRipple]="true" (click)="importData()" color="primary">Import Data</button>
-        &nbsp;&nbsp;&nbsp;
-        <button mat-flat-button color="primary" >Export Data </button>
-        <!-- &nbsp;&nbsp;&nbsp;
-        <button mat-flat-button color="primary">Cancel</button> -->
 
-        <!-- spacer is for filling space in rights side of button so that they coule be adjusted to left -->
-        <span class="spacer"></span>
-    </mat-grid-tile>
-    <mat-grid-tile >
-      <!-- paginator -->
-      <span class="spacer"></span>
 
-      <mat-paginator #paginator
-                    [pageIndex]="0"
-                    [pageSize]="10"
-                    [pageSizeOptions]="[5, 10, 25, 100]"
-                    showFirstLastButtons>
+
+
+
+
+<mat-grid-list cols="2" rowHeight="66px">
+  <mat-grid-tile>
+    <figure class="mat-figure1">
+      <button mat-raised-button [disableRipple]="true" (click)="importData();" class="primarycolor">Import Data</button>
+      &nbsp;&nbsp;&nbsp;
+      <button mat-raised-button class="primarycolor">Export Data </button>
+    </figure>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <!-- paginator -->
+    <figure class="mat-figure2">
+      <mat-paginator #paginator [pageIndex]="0" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]"
+        showFirstLastButtons>
       </mat-paginator>
-    </mat-grid-tile>
-  </mat-grid-list>
-
-</div>
+    </figure>
+  </mat-grid-tile>
+</mat-grid-list>

@@ -1,0 +1,21 @@
+
+<p>
+  Multi-progress bar:
+</p>
+
+<br><br>
+{{new}}
+<div fxLayout="row" fxLayoutGap="0px" style="width: 100%">  
+  <div *ngIf="closedvalue!=0" fxFlex="{{closedvalue}}" style="height: 50px; background-color: green">{{closed}}++{{closedvalue}}</div>
+  <div *ngIf="resolvedvalue!=0" fxFlex="{{resolvedvalue}}" style="height: 50px; background-color: orange">{{resolved}}++ {{resolvedvalue}}</div>
+  <div *ngIf="activevalue!=0" fxFlex="{{activevalue}}" style="height: 50px; background-color: blue">{{active}} ++ {{activevalue}}</div>
+  <div *ngIf="newvalue!=0" fxFlex="{{newvalue}}" style="height: 50px; background-color: gray">{{new}} ++ {{newvalue}}</div>
+</div>
+
+<br><br>
+<div fxLayout="row" fxLayoutGap="0px" style="width: 100%">  
+  <div fxFlex="10" style="height: 50px; background-color: green">closed</div>
+  <div fxFlex="30" style="height: 50px; background-color: orange">resolved</div>
+  <div fxFlex="50" style="height: 50px; background-color: blue">active</div>
+  <div fxFlex="20" style="height: 50px; background-color: gray">New</div>
+</div>

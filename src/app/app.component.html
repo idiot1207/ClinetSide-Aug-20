@@ -1,10 +1,38 @@
-<mat-toolbar color="primary">
+<mat-toolbar color="primary" class="mat-elevation-z8 ">
 
     <span > TRESERVA </span>
 
+    <!-- <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>more_vert</mat-icon>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <met-icon>LogOut</met-icon>
+        </button>
+      </mat-menu>
+
+    </button> -->
+
+   <!-- <button *ngIf="this.teamnameService.isLoggedIn" mat-button  (click)="LogOut()" style="position: absolute; right: 0;">Log Out</button>
+    {{this.teamnameService.isLoggedIn}} -->
+
+    <span *ngIf="this.teamnameService.isLoggedIn" class="fill-remaining-space" style="position: absolute; right: 0;">
+      <button mat-icon-button [matMenuTriggerFor]="menu" [disableRipple]="true" #menuTrigger="matMenuTrigger" (mouseover)="menuTrigger.openMenu()">
+       <span>{{userName}} </span>
+      </button>
+      <mat-menu #menu="matMenu" [overlapTrigger]="false">
+      <span (mouseleave)="menuTrigger.closeMenu()">
+     
+        <!-- <button mat-menu-item [disableRipple]="true" (click)="LogOut()"> -->
+          <mat-icon (click)="LogOut()">exit_to_app</mat-icon>
+          <span (click)="LogOut()" >Logout</span>
+        <!-- </button> -->
+      </span>
+      </mat-menu>
+    </span>
+    
   </mat-toolbar>
 
-<!-- integrating output-data-table -->
 
-<output-data-table></output-data-table>
+ <router-outlet></router-outlet> 
+<!--<app-iteration-detail> </app-iteration-detail>  -->
 

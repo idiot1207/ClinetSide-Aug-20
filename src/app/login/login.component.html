@@ -1,0 +1,65 @@
+<br><br>
+<div style="background:pink">
+  <table align="center">
+    <div class="tool">
+      <mat-toolbar style="color: #000080 ">
+        <!-- <mat-toolbar-row> -->
+        <b>Login Page</b>
+        <!-- </mat-toolbar-row> -->
+      </mat-toolbar>
+      <br><br>
+      <form [formGroup]="loginForm" (ngSubmit)=" onLoginSubmit()">
+        <div *ngIf="showErrorMessage">
+          <span style="color: red">Please enter correct email and password!!</span>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <mat-label>
+              <p>Email</p>
+            </mat-label>
+          </div>
+          <div class="col-75">
+            <mat-form-field>
+              <input id="email" matInput formControlName="email" [(ngModel)]="user.email" placeholder="Enter your email"
+                [ngClass]="{'is-invalid': submitted && f.email.errors}" />
+              <mat-icon matSuffix>mail_outline</mat-icon>
+            </mat-form-field>
+            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+              <div *ngIf="f.email.errors.required">
+                <p style="color: red">Email is required!!
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <mat-label>
+              <p>Password</p>
+            </mat-label>
+          </div>
+          <div class="col-75">
+            <mat-form-field>
+              <input matInput type="password" formControlName="password" [(ngModel)]="user.password"
+                placeholder="Enter your password" [type]="hide ? 'password' : 'text'"
+                [ngClass]="{'is-invalid': submitted && f.password.errors}" />
+              <mat-icon matSuffix (click)="hide=!hide">
+                {{hide ? 'visibility' : 'visibility_off'}}
+              </mat-icon>
+            </mat-form-field>
+            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+              <div *ngIf="f.password.errors.required">
+                <p style="color: red">Password is required!!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br><br><br>
+        <div class="lower" align="center" class="form-group">
+          <button mat-flat-button class="primarycolor" (click)="convertEncryptEmail()"
+            (click)="convertEncryptPassword()">Login</button>&nbsp;&nbsp;&nbsp;&nbsp;
+          <button mat-flat-button class="primarycolor" tabindex="-1" (click)="editReset()">Reset</button>
+        </div>
+      </form>
+    </div>
+  </table>
+</div>

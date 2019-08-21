@@ -1,0 +1,82 @@
+/* .button {
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    align-self: center;
+    background-color: #000080;
+    text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
+  } */
+  button{
+    height: 45px;
+    width: 120px;
+    font-size:18px;
+    color:white;
+}
+
+.primarycolor{
+    background-color: #212d82;
+
+}
+  .col-25 {
+    float: left;
+    width: 40%;
+    margin-top: 10px;
+  }
+  .col-75 {
+    float: right;
+    width: 60%;
+    margin-top: 10px;
+  }
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  mat-label {
+    font-family:verdana;
+    color: #000080;
+  }
+  mat-option {
+    color: #000080;
+  }
+  mat-select {
+    color: #000080;
+  }
+  .tool {
+    position: position;
+    z-index: 1;
+    margin-top: 1%;
+    background: white;
+    max-width: 360px;
+    width: 100%;
+  /*margin: 0 auto 100px */
+    padding: 45px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    }
+    .rlink a{
+    float: left;
+    margin-left: 20%;
+    font-family: Verdana;
+    color: #98D4F3;
+    }
+    .fplink a{
+    float: left;
+    margin-left: 10px;
+    font-family: Verdana;
+    color: #708491;
+    }
+    label {
+      color: white;
+    }
+    input {
+      font-family: "Helvetica Neue", Helvetica, sans-serif;
+      font-size: 12px;
+      outline: none;
+      color: #000080;
+    }  

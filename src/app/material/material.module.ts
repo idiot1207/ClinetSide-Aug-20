@@ -21,7 +21,8 @@ import * as Material from '@angular/material';
     Material.MatAutocompleteModule,
     Material.MatSelectModule,
     Material.MatGridListModule,
-    Material.MatDialogModule
+    Material.MatDialogModule,
+    Material.MatMenuModule
   ],
   exports:[
     Material.MatTableModule,
@@ -39,7 +40,8 @@ import * as Material from '@angular/material';
     Material.MatAutocompleteModule,
     Material.MatSelectModule,
     Material.MatGridListModule,
-    Material.MatDialogModule
+    Material.MatDialogModule,
+    Material.MatMenuModule
 
 
   ]

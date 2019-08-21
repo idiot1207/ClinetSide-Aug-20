@@ -1,0 +1,155 @@
+<div class="tablebackground">
+    <div class="tablewidth">
+    <mat-accordion displayMode="flat" multi class="mat-table">
+      <div class="header">
+        <section matSort class="mat-elevation-z2 mat-header-row">
+          <span class="mat-header-cell" mat-sort-header="SrNo">SR No</span>
+          <span class="mat-header-cell" mat-sort-header="vesselName">Team Name</span>
+          <span class="mat-header-cell" mat-sort-header="vesselStatus">Project Name </span>
+          <span class="mat-header-cell" mat-sort-header="ircs">Release</span>
+          <span class="mat-header-cell" mat-sort-header="projetSatus">Project Status</span>
+          <span class="mat-header-cell" mat-sort-header="tagetFp">Target FP</span>
+          <span class="mat-header-cell" mat-sort-header="fpclosed">FP Closed</span>
+          <span class="mat-header-cell" mat-sort-header="targetSp">Target SP</span>
+          <span class="mat-header-cell" mat-sort-header="closedfp">Closed SP</span>
+          <span class="mat-header-cell" mat-sort-header="bugsraised">Bugs Raised</span>
+          <span class="mat-header-cell" mat-sort-header="bugsclosed">Bugs Closed</span>
+          <span class="mat-header-cell">Action </span>
+          
+        </section>
+      </div>
+      <mat-expansion-panel *ngFor="let item of users;let i=index">
+        <mat-expansion-panel-header class="mat-row">
+          <span class="mat-cell"> {{i+1}}</span>
+          <span class="mat-cell">{{item.name}}</span>
+          <span class="mat-cell">{{item.project_name}}</span>
+          <span class="mat-cell">4.1.8</span>
+          <span class="mat-cell">Completed</span>
+          <span class="mat-cell">{{item.target_fps}}</span>
+          <span class="mat-cell">{{item.fp_closed}}</span>
+          <span class="mat-cell">{{item.target_sps}}</span>
+          <span class="mat-cell">{{item.sp_closed}}</span>
+          <span class="mat-cell">{{item.bugs_raised}}</span>
+          <span class="mat-cell">{{item.bugs_closed}}</span>
+          <span class="mat-cell"><mat-icon (click)="delete(i)">delete</mat-icon></span>
+        </mat-expansion-panel-header>
+        <div>
+          <table align="center">
+            <tr>
+              <th>SR No</th>
+              <th>Iteration Name</th>
+              <th>startDate</th>
+              <th>finishDate</th>
+              <th>Target FP</th>
+              <th>Closed FP</th>
+              <th>Target US</th>
+              <th>Closed US</th>
+              <th>Bug Raised</th>
+              <th>Bug Closed</th>
+  
+            </tr>
+            <tr *ngFor=" let i=index;let data of iterationDatas[i]; ">
+              <td>{{i+1}}</td>
+              <td>{{item.name}}</td>
+              <td>{{data.startDate}}</td>
+              <td>{{data.finishDate}}</td>
+              <td>{{data.iterationtargetFeaturePoint}}</td>
+              <td>{{data.iterationclosedFeaturePoint}}</td>
+              <td>{{data.iterationuserStoriesData}}</td>
+              <td>{{data.iterationclosedStoryPoint}}</td>
+              <td>{{data.iterationbugRaised}}</td>
+              <td>{{data.iterationbugClosed}}</td>
+            </tr>
+  
+            <tfoot>
+              <tr>
+                <td colspan="4">Total</td>
+                <td>{{item.target_fps}}</td>
+                <td>{{item.fp_closed}}</td>
+                <td>{{item.target_sps}}</td>
+                <td>{{item.sp_closed}}</td>
+                <td>{{item.bugs_raised}}</td>
+                <td>{{item.bugs_closed}}</td>
+              </tr>
+            </tfoot>
+  
+          </table>
+  
+  
+          <!-- <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="width:100%">
+  
+              <ng-container matColumnDef="itertaionName">
+                <th mat-header-cell *matHeaderCellDef >Iteration Name</th>
+                <td mat-cell *matCellDef="let element"> {{element.itertaionName}} </td>
+              </ng-container>
+  
+              <ng-container matColumnDef="startDate">
+                <th mat-header-cell *matHeaderCellDef >startDate</th>
+                <td mat-cell *matCellDef="let element"> {{element.startDate}} </td>
+              </ng-container>
+  
+              <ng-container matColumnDef="finishDate">
+                <th mat-header-cell *matHeaderCellDef >finishDate</th>
+                <td mat-cell *matCellDef="let element"> {{element.finishDate}} </td>
+              </ng-container>
+  
+              <ng-container matColumnDef="targetFP">
+                <th mat-header-cell *matHeaderCellDef >Target FP's</th>
+                <td mat-cell *matCellDef="let element">{{element.iterationtargetFeaturePoint}} </td>
+              </ng-container>
+  
+              <ng-container matColumnDef="fpClosed">
+                <th mat-header-cell *matHeaderCellDef > FP Closed</th>
+                <td mat-cell *matCellDef="let element">{{element.iterationclosedFeaturePoint}} </td>
+              </ng-container>
+  
+              <ng-container matColumnDef="targetSP">
+                <th mat-header-cell *matHeaderCellDef > Target SP </th>
+                <td mat-cell *matCellDef="let element">{{element.iterationuserStoriesData}} </td>
+              </ng-container>
+  
+              <ng-container matColumnDef="spClosed">
+                <th mat-header-cell *matHeaderCellDef> SP Closed</th>
+                <td mat-cell *matCellDef="let element">{{element.iterationclosedStoryPoint}} </td>
+              </ng-container>
+  
+              <ng-container matColumnDef="bugsRaised">
+                <th mat-header-cell *matHeaderCellDef > Bug Raised </th>
+                <td mat-cell *matCellDef="let element">{{element.iterationbugRaised}} </td>
+              </ng-container>
+  
+              <ng-container matColumnDef="bugsClosed">
+                <th mat-header-cell *matHeaderCellDef > Bug Closed </th>
+                <td mat-cell *matCellDef="let element">{{element.iterationbugClosed}} </td>
+              </ng-container>
+  
+  
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  
+  
+            </table> -->
+        </div>
+      </mat-expansion-panel>
+  
+    </mat-accordion>
+  </div>
+  </div>
+  
+  
+    <mat-grid-list cols="2" rowHeight="60px">
+      <mat-grid-tile>
+        <figure class="mat-figure1">
+          <button mat-flat-button class="primarycolor" [disableRipple]="true" (click)="importData()">Import Data</button>
+          &nbsp;&nbsp;&nbsp;
+          <button mat-flat-button class="primarycolor">Export Data </button>
+        </figure>
+      </mat-grid-tile>
+  
+      <mat-grid-tile>
+        <figure class="mat-figure2">
+          <mat-paginator #paginator [length]="totalRows$ | async" [pageIndex]="0" [pageSize]="10"
+            [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+        </figure>
+      </mat-grid-tile>
+    </mat-grid-list>

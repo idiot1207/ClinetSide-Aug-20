@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AddDialogComponent } from './add-dialog.component';
+import { OutputDatatableComponent } from './output-datatable.component';
 
-describe('AddDialogComponent', () => {
-  let component: AddDialogComponent;
-  let fixture: ComponentFixture<AddDialogComponent>;
+describe('OutputDatatableComponent', () => {
+  let component: OutputDatatableComponent;
+  let fixture: ComponentFixture<OutputDatatableComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AddDialogComponent ]
+      declarations: [ OutputDatatableComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AddDialogComponent);
+    fixture = TestBed.createComponent(OutputDatatableComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

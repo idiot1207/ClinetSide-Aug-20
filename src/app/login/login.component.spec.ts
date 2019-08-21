@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ExpectedDataOutputComponent } from './expected-data-output.component';
+import { LoginComponent } from './login.component';
 
-describe('ExpectedDataOutputComponent', () => {
-  let component: ExpectedDataOutputComponent;
-  let fixture: ComponentFixture<ExpectedDataOutputComponent>;
+describe('LoginComponent', () => {
+  let component: LoginComponent;
+  let fixture: ComponentFixture<LoginComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ExpectedDataOutputComponent ]
+      declarations: [ LoginComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ExpectedDataOutputComponent);
+    fixture = TestBed.createComponent(LoginComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

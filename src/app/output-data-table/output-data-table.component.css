@@ -1,86 +1,135 @@
-/* table {
-    width: 100%;
-    min-width: 500px;
-  } */
-  .tablewidth{
-    /* margin-top: 10px; */
-    max-height: 502px;
-    min-height: 502px;
-    overflow: auto;
-  }
-    /* Toolbar */
-    .spacer {
-      flex: 1 1 auto;
-      /* width: 0px; */
-    }
-    
-    .container {
-      display: flex;
-      flex-direction: column;
-    }
-    
-    .mat-header-cell {
-      /* min-height: 75px; */
-      align-items: left;
-      background-color:rgb(97, 156, 204);
-      font-size: 18px;
-      font-weight: 200;
-      color:white;
-  }
-  
-  /* mat row hover property */
-  .mat-row:hover {
-    background-color: rgb(229, 236, 241);
-  }
-  
-    /*mat cell properties*/
-    .mat-cell:nth-child(1),
-    .mat-header-cell:nth-child(1){
-      flex: 0 0 5%;
-    }
-    
-   .mat-cell:nth-child(2),
-    .mat-header-cell:nth-child(2){
-      flex: 0 0 15%;
-    }
-    
-    .mat-cell:nth-child(3),
-    .mat-header-cell:nth-child(3){
-      flex: 0 0 22%;
-    }
-  
-    .mat-cell:nth-child(4),
-    .mat-header-cell:nth-child(4){
-      flex: 0 0 7%;
-    } 
-  
-    .mat-cell:nth-child(5),
-    .mat-header-cell:nth-child(5){
-      flex: 0 0 7%;
-    }  
-  
-    .mat-cell:nth-child(6),
-    .mat-header-cell:nth-child(6){
-      flex: 0 0 7%;
-    }
-  
-    /* button properties */
-    button{
-      height: 45px;
-      width: 120px;
-      font-size: 18px;
-      color: white;
-      /* background-color: rgb(36, 66, 235); */
-    }
-    :host ::ng-deep.mat-paginator .mat-paginator-container{
-      /* justify-content: flex-start; */
-      /* color:rgb(122, 116, 116); */
-      font-size: 18px;
-    }
-  
-  /* mat-grid-tile {
-    background: rgb(122, 168, 206);
-  
-  } */
-  
-  
+.tablebackground{
+  background-color: #3b4684;
+  height:520px;
+}
+.tablewidth{
+  /* margin-top: 10px;
+  max-height: 502px;
+  min-height: 502px;
+  overflow: auto; */
+  margin-top: 1px;
+  max-height: 515px;
+  min-height: 515px;
+  margin-left: 8px;
+  max-width: 1355px;
+  margin-right: 5px;
+  background-color: #eee;
+  overflow:auto;
+}
+table {
+  width: 100%;
+}
+.primarycolor{
+  background : #212d82;
+}
+button{
+  height: 45px;
+  width: 120px;
+  font-size:18px;
+  color:white;
+}
+.mat-grid-tile .mat-figure1 {
+  left: 5px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+.mat-grid-tile .mat-figure2 {
+  right: 10px;
+  bottom: 0;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+th.mat-header-cell{
+  align-items: left;
+  background-color:rgba(104, 149, 195, 0.92);
+  font-size: 18px;
+  font-weight: 200;
+  color:white;
+}
+
+:host ::ng-deep.mat-paginator .mat-paginator-container{
+  font-size: 18px;
+}
+
+/* th.mat-header-cell:nth-child(2){
+  flex: 0 0 30%;
+}
+
+.mat-column-name{
+  flex: 0 0 400px;
+
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+tr.example-detail-row {
+  height: 0;
+}
+
+tr.example-element-row:not(.example-expanded-row):hover {
+  background: #777;
+}
+
+tr.example-element-row:not(.example-expanded-row):active {
+  background: #efefef;
+}
+
+.example-element-row td {
+  border-bottom-width: 0;
+}
+
+.example-element-detail {
+  overflow: hidden;
+  display: flex;
+}
+
+.example-element-diagram {
+  min-width: 80px;
+  border: 2px solid black;
+  padding: 8px;
+  font-weight: lighter;
+  margin: 8px 0;
+  height: 104px;
+}
+
+.example-element-symbol {
+  font-weight: bold;
+  font-size: 40px;
+  line-height: normal;
+}
+
+.example-element-description {
+  padding: 16px;
+}
+
+.example-element-description-attribution {
+  opacity: 0.5;
+}
+
+.innerTable{
+  border-collapse: collapse;
+  width: 80%;
+}

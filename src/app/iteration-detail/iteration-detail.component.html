@@ -1,0 +1,97 @@
+<!-- Iteration Nav bar -->
+<mat-tab-group (selectedTabChange)="iteration($event)" [selectedIndex]="selectedIndex">
+  <mat-tab label="{{itreationsname.name}}" *ngFor="let itreationsname of itreationsNames"> </mat-tab>
+</mat-tab-group>
+
+<!-- expansion table for Team -->
+<table mat-table [dataSource]="teamDataSource" multiTemplateDataRows>
+  <!-- actions column -->
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-icon-button color="primary"
+        (click)="teamExpandedElement = teamExpandedElement === element ? null : element"
+        (click)="teamExpansion(element.name)">
+        <mat-icon>expand_more</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <!-- Team Name Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>
+      <h3>Team Name</h3>
+    </th>
+    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  </ng-container>
+
+  <!--  Expanded Content Column for Team Name  -->
+  <ng-container matColumnDef="expandedDetail">
+    <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
+      <div class="example-element-detail" [@Expand]="element == teamExpandedElement ? 'expanded' : 'collapsed'">
+        <div class="example-element-description">
+          <!-- Expanded Table for Project Name -->
+          <table mat-table [dataSource]="projectDataSource" multiTemplateDataRows class="mat-elevation-z8"
+            style="width: 1320px">
+            <!-- actions column -->
+            <ng-container matColumnDef="actions">
+              <th mat-header-cell *matHeaderCellDef> </th>
+              <td mat-cell *matCellDef="let element">
+                <button mat-icon-button color="primary"
+                  (click)="projectExpandedElement = projectExpandedElement === element ? null : element"
+                  (click)="projectExpansion(element.name)">
+                  <mat-icon>expand_more</mat-icon>
+                </button>
+              </td>
+            </ng-container>
+
+            <!-- Project Name Column -->
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef>
+                <h3>Project Name</h3>
+              </th>
+              <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+
+            <!-- !-- Expanded Content Column for Projects -->
+            <ng-container matColumnDef="expandedDetail">
+              <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
+                <div class="example-element-detail"
+                  [@Expand]="element == projectExpandedElement ? 'expanded' : 'collapsed'">
+                  <div class="example-element-description" style="width:20%">
+                    <br>
+                    <div fxLayout="row" fxLayoutGap="0px" style="width: 100% ;margin-left: 70px;">
+                      <div *ngIf="closeduserStories!=0" fxFlex="{{closeduserStories}}"
+                        style="height: 50px; background-color: green">closed&nbsp;{{closeduserStories}}</div>
+                      <div *ngIf="resolveduserStories!=0" fxFlex="{{resolveduserStories}}"
+                        style="height: 50px; background-color: orange">resolved&nbsp;{{resolveduserStories}}</div>
+                      <div *ngIf="activeuserStories!=0" fxFlex="{{activeuserStories}}"
+                        style="height: 50px; background-color: blue">active&nbsp;{{activeuserStories}</div>
+                      <div *ngIf="newuserStories!=0" fxFlex="{{newuserStories}}" style="height: 50px;
+                        background-color: gray">new&nbsp;{{newuserStories}}</div>
+                      <div
+                        *ngIf="closeduserStories==0 && resolveduserStories==0 && activeuserStories==0 && newuserStories==0">
+                        <b>No data</b></div>
+                    </div> <br>
+                  </div>
+                </div>
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+            <tr mat-row *matRowDef="let element; columns: columnsToDisplay;" class="example-element-row"
+              [class.example-expanded-row]="projectExpandedElement === element">
+            </tr>
+            <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+          </table>
+        </div>
+      </div>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+  <tr mat-row *matRowDef="let element; columns: columnsToDisplay;" class="example-element-row"
+    [class.example-expanded-row]="teamExpandedElement === element">
+  </tr>
+  <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+</table>
